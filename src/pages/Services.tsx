@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { Palette, Code, Zap, Globe, Search, BarChart, Smartphone, ShieldCheck, ArrowRight } from 'lucide-react';
+import { Palette, Code, Search, BarChart, Smartphone, ShieldCheck, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export default function Services() {
