@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { Users, Target, Eye, Award, CheckCircle2 } from 'lucide-react';
+import { Target, Eye, Award, CheckCircle2 } from 'lucide-react';
 
 export default function About() {
   const values = [
@@ -81,12 +81,12 @@ export default function About() {
             </div>
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-4">
-                <img src="https://picsum.photos/seed/work1/300/400" className="rounded-xl w-full border border-border" referrerPolicy="no-referrer" />
-                <img src="https://picsum.photos/seed/work2/300/200" className="rounded-xl w-full border border-border" referrerPolicy="no-referrer" />
+                <img src="https://picsum.photos/seed/work1/300/400" alt="" className="rounded-xl w-full border border-border" referrerPolicy="no-referrer" />
+                <img src="https://picsum.photos/seed/work2/300/200" alt="" className="rounded-xl w-full border border-border" referrerPolicy="no-referrer" />
               </div>
               <div className="space-y-4 pt-12">
-                <img src="https://picsum.photos/seed/work3/300/200" className="rounded-xl w-full border border-border" referrerPolicy="no-referrer" />
-                <img src="https://picsum.photos/seed/work4/300/400" className="rounded-xl w-full border border-border" referrerPolicy="no-referrer" />
+                <img src="https://picsum.photos/seed/work3/300/200" alt="" className="rounded-xl w-full border border-border" referrerPolicy="no-referrer" />
+                <img src="https://picsum.photos/seed/work4/300/400" alt="" className="rounded-xl w-full border border-border" referrerPolicy="no-referrer" />
               </div>
             </div>
           </div>
