@@ -18,7 +18,7 @@ export default function Footer() {
               <span className="text-2xl font-display font-bold tracking-tighter uppercase text-dark">Sorrow Link</span>
             </Link>
             <p className="text-muted max-w-md text-lg leading-relaxed">
-              We build digital experiences that matter. From strategy to execution, we are your partners in digital transformation.
+              We help leadership teams modernize operations, launch digital products, and build dependable technology foundations for growth.
             </p>
           </div>
 
@@ -28,6 +28,7 @@ export default function Footer() {
               <li><Link to="/" className="text-muted hover:text-dark transition-colors">Home</Link></li>
               <li><Link to="/about" className="text-muted hover:text-dark transition-colors">About Us</Link></li>
               <li><Link to="/services" className="text-muted hover:text-dark transition-colors">Services</Link></li>
+              <li><Link to="/products" className="text-muted hover:text-dark transition-colors">Product Services</Link></li>
               <li><Link to="/gallery" className="text-muted hover:text-dark transition-colors">Gallery</Link></li>
               <li><Link to="/contact" className="text-muted hover:text-dark transition-colors">Contact</Link></li>
             </ul>
