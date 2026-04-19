@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { ArrowRight, Code, Palette, Zap, Globe, Users, Star } from 'lucide-react';
+import { ArrowRight, Code, Palette, Zap, Star } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export default function Home() {
