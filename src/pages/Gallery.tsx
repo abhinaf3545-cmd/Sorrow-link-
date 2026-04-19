@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { X, Maximize2, ExternalLink } from 'lucide-react';
+import { X, Maximize2 } from 'lucide-react';
 
 export default function Gallery() {
   const [selectedImg, setSelectedImg] = useState<string | null>(null);
@@ -104,13 +104,18 @@ export default function Gallery() {
             className="fixed inset-0 z-[100] bg-white/95 backdrop-blur-xl flex items-center justify-center p-6"
             onClick={() => setSelectedImg(null)}
           >
-            <button className="absolute top-10 right-10 text-dark hover:text-brand transition-colors">
+            <button
+              type="button"
+              className="absolute top-10 right-10 text-dark hover:text-brand transition-colors"
+              aria-label="Close image preview"
+            >
               <X size={40} />
             </button>
             <motion.img
               initial={{ scale: 0.9 }}
               animate={{ scale: 1 }}
               src={selectedImg}
+              alt="Expanded portfolio preview"
               className="max-w-full max-h-[80vh] rounded-xl shadow-2xl border border-border"
               referrerPolicy="no-referrer"
             />
