@@ -1,11 +1,12 @@
 import { Link } from 'react-router-dom';
-import { Mail, Phone, MapPin, ArrowUpRight } from 'lucide-react';
+import { Mail, Phone, MapPin, ArrowUpRight, MessageCircleMore } from 'lucide-react';
 
 export default function Footer() {
   const contactLinks = [
     { href: 'mailto:hello@sorrowlink.com', label: 'Email', icon: <Mail size={18} /> },
-    { href: 'tel:+15551234567', label: 'Call', icon: <Phone size={18} /> },
-    { href: 'https://maps.google.com/?q=123+Innovation+Drive,+Digital+Valley,+CA+94043', label: 'Visit', icon: <MapPin size={18} /> },
+    { href: 'tel:+919207966059', label: 'Call', icon: <Phone size={18} /> },
+    { href: 'https://wa.me/919207966059', label: 'WhatsApp', icon: <MessageCircleMore size={18} /> },
+    { href: 'https://maps.google.com/?q=No.+16,+Shop+No.+2,+7th+Cross+Road,+6th+Main,+Narayana+Gowda+Layout,+BTM+Layout+1st+Stage,+Tavarekere,+Bengaluru,+Karnataka+560029', label: 'Visit', icon: <MapPin size={18} /> },
   ];
 
   return (
@@ -20,6 +21,11 @@ export default function Footer() {
             <p className="text-muted max-w-md text-lg leading-relaxed">
               We help leadership teams modernize operations, launch digital products, and build dependable technology foundations for growth.
             </p>
+            <div className="mt-6 space-y-2 text-sm text-muted">
+              <p>Phone: +91 9207966059</p>
+              <p>WhatsApp: +91 9207966059</p>
+              <p>No. 16, Shop No. 2, 7th Cross Road, 6th Main, Narayana Gowda Layout, BTM Layout 1st Stage, Tavarekere, Bengaluru, Karnataka 560029</p>
+            </div>
           </div>
 
           <div>
