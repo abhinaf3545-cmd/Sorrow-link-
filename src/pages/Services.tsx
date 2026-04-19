@@ -1,44 +1,44 @@
 import { motion } from 'motion/react';
-import { Palette, Code, Search, BarChart, Smartphone, ShieldCheck, ArrowRight } from 'lucide-react';
+import { ArrowRight, BarChart, BriefcaseBusiness, Building2, Layers3, ShieldCheck, Workflow } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export default function Services() {
   const services = [
     {
-      icon: <Palette size={40} />,
-      title: 'Branding & Identity',
-      desc: 'We create visual identities that tell your story and leave a lasting impression.',
-      features: ['Logo Design', 'Brand Guidelines', 'Typography', 'Color Theory']
+      icon: <BriefcaseBusiness size={40} />,
+      title: 'Transformation Strategy',
+      desc: 'We help leadership teams prioritize investments, define roadmaps, and align operating models around growth.',
+      features: ['Executive Workshops', 'Transformation Roadmaps', 'Portfolio Prioritization', 'Change Planning']
     },
     {
-      icon: <Code size={40} />,
-      title: 'Web Development',
-      desc: 'High-performance websites built with the latest technologies for speed and scale.',
-      features: ['React/Next.js', 'E-commerce', 'CMS Integration', 'API Development']
+      icon: <Workflow size={40} />,
+      title: 'Process & Automation',
+      desc: 'Operational improvement programs that reduce friction across service delivery, reporting, and internal workflows.',
+      features: ['Workflow Design', 'Automation Mapping', 'Internal Tooling', 'Ops Enablement']
     },
     {
-      icon: <Smartphone size={40} />,
-      title: 'Mobile Apps',
-      desc: 'Native and cross-platform mobile experiences that users love to engage with.',
-      features: ['iOS & Android', 'React Native', 'UI/UX Design', 'App Store Optimization']
+      icon: <Layers3 size={40} />,
+      title: 'Enterprise Platforms',
+      desc: 'Scalable delivery for portals, dashboards, and business-critical systems with strong architectural discipline.',
+      features: ['Platform Design', 'Systems Integration', 'B2B Portals', 'Data Workflows']
     },
     {
-      icon: <Search size={40} />,
-      title: 'SEO & Marketing',
-      desc: 'Strategic digital marketing that puts your brand in front of the right audience.',
-      features: ['Keyword Research', 'Content Strategy', 'PPC Campaigns', 'Analytics']
+      icon: <Building2 size={40} />,
+      title: 'Corporate Experience Design',
+      desc: 'Professional digital presence for organizations that need credibility, consistency, and clear stakeholder journeys.',
+      features: ['Corporate Websites', 'Investor Messaging', 'Service Architecture', 'Accessibility Standards']
     },
     {
       icon: <ShieldCheck size={40} />,
-      title: 'Cyber Security',
-      desc: 'Protecting your digital assets with robust security measures and monitoring.',
-      features: ['Penetration Testing', 'Data Encryption', 'Security Audits', 'Compliance']
+      title: 'Risk & Delivery Assurance',
+      desc: 'Controls, governance, and quality checkpoints that protect programs during scale, launch, and transition.',
+      features: ['Delivery Governance', 'Security Coordination', 'Release Readiness', 'Documentation']
     },
     {
       icon: <BarChart size={40} />,
-      title: 'Data Analytics',
-      desc: 'Turning raw data into actionable insights to drive your business decisions.',
-      features: ['Data Visualization', 'User Behavior', 'Conversion Tracking', 'Reporting']
+      title: 'Performance Analytics',
+      desc: 'Measurement frameworks that connect digital delivery to executive reporting and operational improvement.',
+      features: ['Executive Dashboards', 'KPI Design', 'Service Metrics', 'Decision Support']
     }
   ];
 
@@ -52,13 +52,13 @@ export default function Services() {
             animate={{ opacity: 1 }}
             className="text-brand font-bold uppercase tracking-[0.3em] text-sm block mb-4"
           >
-            Capabilities
+            Corporate Services
           </motion.span>
           <h1 className="text-6xl md:text-8xl uppercase tracking-tighter leading-none mb-8 text-dark">
-            Solutions For <br /> The <span className="text-brand italic">Digital Age</span>.
+            Advisory And <br /> Delivery <span className="text-brand italic">For Scale</span>.
           </h1>
           <p className="text-xl text-muted leading-relaxed">
-            We offer a comprehensive suite of services designed to help your business thrive in an ever-evolving digital landscape.
+            Our service lines are designed for organizations managing transformation, modernization, and multi-stakeholder delivery.
           </p>
         </div>
 
@@ -96,18 +96,18 @@ export default function Services() {
         {/* Process Section */}
         <section className="py-24 bg-surface rounded-3xl px-12 md:px-24 border border-border">
           <div className="text-center mb-20">
-            <h2 className="text-4xl md:text-6xl uppercase mb-6 text-dark">Our Process</h2>
-            <p className="text-muted">How we bring your vision to life, step by step.</p>
+            <h2 className="text-4xl md:text-6xl uppercase mb-6 text-dark">Our Delivery Model</h2>
+            <p className="text-muted">Structured governance and execution from assessment through adoption.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-12 relative">
             {/* Connector Line */}
             <div className="hidden md:block absolute top-1/4 left-0 w-full h-px bg-border -z-0" />
             
             {[
-              { step: '01', title: 'Discovery', desc: 'Understanding your goals, audience, and challenges.' },
-              { step: '02', title: 'Strategy', desc: 'Developing a roadmap for success and innovation.' },
-              { step: '03', title: 'Execution', desc: 'Building and refining the solution with precision.' },
-              { step: '04', title: 'Launch', desc: 'Deploying and scaling for maximum impact.' }
+              { step: '01', title: 'Assess', desc: 'Capture objectives, operating realities, risks, and stakeholder expectations.' },
+              { step: '02', title: 'Design', desc: 'Define the service blueprint, roadmap, and measures of success.' },
+              { step: '03', title: 'Deliver', desc: 'Execute in accountable phases with visibility across teams and sponsors.' },
+              { step: '04', title: 'Embed', desc: 'Support adoption with documentation, enablement, and performance reporting.' }
             ].map((p, i) => (
               <div key={i} className="relative z-10 text-center md:text-left">
                 <div className="w-16 h-16 rounded-full bg-white border border-brand flex items-center justify-center text-brand font-display font-bold text-2xl mx-auto md:mx-0 mb-8 shadow-sm">
@@ -117,6 +117,34 @@ export default function Services() {
                 <p className="text-muted text-sm leading-relaxed">{p.desc}</p>
               </div>
             ))}
+          </div>
+        </section>
+
+        <section className="py-24">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+            <div className="rounded-3xl border border-border bg-white p-10">
+              <p className="text-sm uppercase tracking-[0.3em] text-brand font-bold mb-4">Best For</p>
+              <h2 className="text-4xl uppercase tracking-tight text-dark mb-6">Consulting Engagements</h2>
+              <p className="text-muted text-lg leading-relaxed mb-8">
+                Ideal for organizations that need strategic alignment, delivery oversight, and a credible partner across multiple workstreams.
+              </p>
+              <ul className="space-y-4 text-muted">
+                <li>Digital transformation programs</li>
+                <li>Operating model redesign</li>
+                <li>Corporate website and service architecture refreshes</li>
+                <li>Stakeholder reporting and governance design</li>
+              </ul>
+            </div>
+            <div className="rounded-3xl border border-border bg-dark p-10 text-white">
+              <p className="text-sm uppercase tracking-[0.3em] text-white/70 font-bold mb-4">Need Product Delivery?</p>
+              <h2 className="text-4xl uppercase tracking-tight mb-6">Explore Product Services</h2>
+              <p className="text-white/75 text-lg leading-relaxed mb-8">
+                When the mandate includes shipping software, portals, or internal platforms, our product services team takes over with dedicated engineering and product discipline.
+              </p>
+              <Link to="/products" className="inline-flex items-center gap-3 rounded-md bg-white px-6 py-4 font-bold uppercase tracking-widest text-dark">
+                View Product Services <ArrowRight size={18} />
+              </Link>
+            </div>
           </div>
         </section>
       </div>
