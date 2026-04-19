@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import { Mail, Phone, MapPin, Send, MessageSquare, ArrowRight } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, MessageSquare, ArrowRight, MessageCircleMore } from 'lucide-react';
 
 export default function Contact() {
   const [formValues, setFormValues] = useState({
@@ -144,19 +144,38 @@ export default function Contact() {
               <div className="p-8 rounded-xl bg-surface border border-border hover:border-brand/30 transition-colors">
                 <Phone className="text-brand mb-6" size={32} />
                 <h4 className="text-sm uppercase tracking-widest text-muted mb-2">Call Us</h4>
-                <p className="text-xl font-bold text-dark">+1 (555) 123-4567</p>
+                <a href="tel:+919207966059" className="text-xl font-bold text-dark hover:text-brand transition-colors">+91 9207966059</a>
+              </div>
+              <div className="p-8 rounded-xl bg-surface border border-border hover:border-brand/30 transition-colors sm:col-span-2">
+                <MessageCircleMore className="text-brand mb-6" size={32} />
+                <h4 className="text-sm uppercase tracking-widest text-muted mb-2">WhatsApp</h4>
+                <div className="flex flex-wrap items-center gap-4">
+                  <a
+                    href="https://wa.me/919207966059"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-3 rounded-full bg-brand px-5 py-3 text-sm font-bold uppercase tracking-widest text-white"
+                  >
+                    Chat On WhatsApp
+                  </a>
+                  <span className="text-lg font-bold text-dark">+91 9207966059</span>
+                </div>
               </div>
             </div>
 
             <div className="p-8 rounded-xl bg-surface border border-border">
               <MapPin className="text-brand mb-6" size={32} />
               <h4 className="text-sm uppercase tracking-widest text-muted mb-2">Visit Us</h4>
-              <p className="text-xl font-bold mb-8 text-dark">123 Innovation Drive, Digital Valley, CA 94043</p>
+              <p className="text-xl font-bold mb-4 text-dark">Floor No.: Ground Floor</p>
+              <p className="text-base leading-relaxed text-muted mb-8">
+                No. 16, Shop No. 2, 7th Cross Road, 6th Main, Narayana Gowda Layout, BTM Layout 1st Stage,
+                Tavarekere, Bengaluru, Bengaluru Urban, Karnataka 560029
+              </p>
               
               {/* Google Maps Iframe */}
               <div className="w-full h-64 rounded-xl overflow-hidden opacity-80 hover:opacity-100 transition-all duration-500 border border-border">
                 <iframe 
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3168.639290622367!2d-122.08374688469212!3d37.42199987982521!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fba02425dad8f%3A0x6c296c66619367e0!2sGoogleplex!5e0!3m2!1sen!2sus!4v1647334751433!5m2!1sen!2sus" 
+                  src="https://www.google.com/maps?q=No.+16,+Shop+No.+2,+7th+Cross+Road,+6th+Main,+Narayana+Gowda+Layout,+BTM+Layout+1st+Stage,+Tavarekere,+Bengaluru,+Karnataka+560029&output=embed" 
                   width="100%" 
                   height="100%" 
                   title="Sorrow Link office location"
@@ -175,9 +194,11 @@ export default function Contact() {
                 <p className="opacity-90">Our team is online and ready to help.</p>
               </div>
               <a
-                href="mailto:hello@sorrowlink.com?subject=Live%20Chat%20Request"
+                href="https://wa.me/919207966059"
                 className="ml-auto w-12 h-12 rounded-full bg-white text-brand flex items-center justify-center shadow-md"
-                aria-label="Email the team"
+                aria-label="Chat on WhatsApp"
+                target="_blank"
+                rel="noreferrer"
               >
                 <ArrowRight size={24} />
               </a>
