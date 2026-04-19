@@ -3,12 +3,30 @@ import { motion } from 'motion/react';
 import { Mail, Phone, MapPin, Send, MessageSquare, ArrowRight } from 'lucide-react';
 
 export default function Contact() {
+  const [formValues, setFormValues] = useState({
+    name: '',
+    email: '',
+    subject: 'General Inquiry',
+    message: '',
+  });
   const [formState, setFormState] = useState<'idle' | 'sending' | 'sent'>('idle');
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setFormState('sending');
-    setTimeout(() => setFormState('sent'), 2000);
+
+    const subject = encodeURIComponent(`[${formValues.subject}] ${formValues.name}`.trim());
+    const body = encodeURIComponent(
+      [
+        `Name: ${formValues.name}`,
+        `Email: ${formValues.email}`,
+        '',
+        formValues.message,
+      ].join('\n'),
+    );
+
+    window.location.href = `mailto:hello@sorrowlink.com?subject=${subject}&body=${body}`;
+    setFormState('sent');
   };
 
   return (
@@ -43,25 +61,46 @@ export default function Contact() {
                 <div className="w-20 h-20 bg-brand rounded-full flex items-center justify-center text-white mb-8">
                   <Send size={32} />
                 </div>
-                <h3 className="text-3xl uppercase mb-4 text-dark">Message Sent!</h3>
-                <p className="text-muted mb-8">Thank you for reaching out. We'll get back to you within 24 hours.</p>
-                <button onClick={() => setFormState('idle')} className="btn-secondary">Send Another Message</button>
+                <h3 className="text-3xl uppercase mb-4 text-dark">Draft Ready!</h3>
+                <p className="text-muted mb-8">Your email client should now have a prefilled draft for this inquiry.</p>
+                <button type="button" onClick={() => setFormState('idle')} className="btn-secondary">Create Another Draft</button>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <label className="text-xs uppercase tracking-widest text-muted font-bold ml-4">Full Name</label>
-                    <input required type="text" placeholder="John Doe" className="w-full bg-surface border border-border rounded-md px-6 py-4 focus:outline-none focus:border-brand transition-colors text-dark" />
+                    <label htmlFor="full-name" className="text-xs uppercase tracking-widest text-muted font-bold ml-4">Full Name</label>
+                    <input
+                      id="full-name"
+                      required
+                      type="text"
+                      placeholder="John Doe"
+                      className="w-full bg-surface border border-border rounded-md px-6 py-4 focus:outline-none focus:border-brand transition-colors text-dark"
+                      value={formValues.name}
+                      onChange={(e) => setFormValues((current) => ({ ...current, name: e.target.value }))}
+                    />
                   </div>
                   <div className="space-y-2">
-                    <label className="text-xs uppercase tracking-widest text-muted font-bold ml-4">Email Address</label>
-                    <input required type="email" placeholder="john@example.com" className="w-full bg-surface border border-border rounded-md px-6 py-4 focus:outline-none focus:border-brand transition-colors text-dark" />
+                    <label htmlFor="email-address" className="text-xs uppercase tracking-widest text-muted font-bold ml-4">Email Address</label>
+                    <input
+                      id="email-address"
+                      required
+                      type="email"
+                      placeholder="john@example.com"
+                      className="w-full bg-surface border border-border rounded-md px-6 py-4 focus:outline-none focus:border-brand transition-colors text-dark"
+                      value={formValues.email}
+                      onChange={(e) => setFormValues((current) => ({ ...current, email: e.target.value }))}
+                    />
                   </div>
                 </div>
                 <div className="space-y-2">
-                  <label className="text-xs uppercase tracking-widest text-muted font-bold ml-4">Subject</label>
-                  <select className="w-full bg-surface border border-border rounded-md px-6 py-4 focus:outline-none focus:border-brand transition-colors appearance-none text-dark">
+                  <label htmlFor="subject" className="text-xs uppercase tracking-widest text-muted font-bold ml-4">Subject</label>
+                  <select
+                    id="subject"
+                    className="w-full bg-surface border border-border rounded-md px-6 py-4 focus:outline-none focus:border-brand transition-colors appearance-none text-dark"
+                    value={formValues.subject}
+                    onChange={(e) => setFormValues((current) => ({ ...current, subject: e.target.value }))}
+                  >
                     <option>General Inquiry</option>
                     <option>Project Proposal</option>
                     <option>Career Opportunity</option>
@@ -69,15 +108,27 @@ export default function Contact() {
                   </select>
                 </div>
                 <div className="space-y-2">
-                  <label className="text-xs uppercase tracking-widest text-muted font-bold ml-4">Message</label>
-                  <textarea required rows={5} placeholder="Tell us about your project..." className="w-full bg-surface border border-border rounded-md px-6 py-4 focus:outline-none focus:border-brand transition-colors resize-none text-dark"></textarea>
+                  <label htmlFor="message" className="text-xs uppercase tracking-widest text-muted font-bold ml-4">Message</label>
+                  <textarea
+                    id="message"
+                    required
+                    rows={5}
+                    placeholder="Tell us about your project..."
+                    className="w-full bg-surface border border-border rounded-md px-6 py-4 focus:outline-none focus:border-brand transition-colors resize-none text-dark"
+                    value={formValues.message}
+                    onChange={(e) => setFormValues((current) => ({ ...current, message: e.target.value }))}
+                  ></textarea>
                 </div>
                 <button 
+                  type="submit"
                   disabled={formState === 'sending'}
                   className="w-full btn-primary justify-center py-5 text-lg"
                 >
-                  {formState === 'sending' ? 'Sending...' : 'Send Message'} <Send size={20} />
+                  {formState === 'sending' ? 'Opening Email...' : 'Send Message'} <Send size={20} />
                 </button>
+                <p className="text-sm text-muted">
+                  Submitting this form opens your email client with the message prefilled, so inquiries no longer disappear into a demo state.
+                </p>
               </form>
             )}
           </motion.div>
@@ -108,6 +159,7 @@ export default function Contact() {
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3168.639290622367!2d-122.08374688469212!3d37.42199987982521!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fba02425dad8f%3A0x6c296c66619367e0!2sGoogleplex!5e0!3m2!1sen!2sus!4v1647334751433!5m2!1sen!2sus" 
                   width="100%" 
                   height="100%" 
+                  title="Sorrow Link office location"
                   style={{ border: 0 }} 
                   allowFullScreen 
                   loading="lazy"
@@ -122,9 +174,13 @@ export default function Contact() {
                 <h4 className="font-bold text-xl uppercase tracking-tight">Live Chat</h4>
                 <p className="opacity-90">Our team is online and ready to help.</p>
               </div>
-              <button className="ml-auto w-12 h-12 rounded-full bg-white text-brand flex items-center justify-center shadow-md">
+              <a
+                href="mailto:hello@sorrowlink.com?subject=Live%20Chat%20Request"
+                className="ml-auto w-12 h-12 rounded-full bg-white text-brand flex items-center justify-center shadow-md"
+                aria-label="Email the team"
+              >
                 <ArrowRight size={24} />
-              </button>
+              </a>
             </div>
           </div>
         </div>
