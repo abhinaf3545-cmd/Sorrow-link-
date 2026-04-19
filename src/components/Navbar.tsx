@@ -47,7 +47,14 @@ export default function Navbar() {
         </div>
 
         {/* Mobile Toggle */}
-        <button className="md:hidden text-dark" onClick={() => setIsOpen(!isOpen)}>
+        <button
+          type="button"
+          className="md:hidden text-dark"
+          onClick={() => setIsOpen(!isOpen)}
+          aria-expanded={isOpen}
+          aria-controls="mobile-navigation"
+          aria-label={isOpen ? 'Close navigation menu' : 'Open navigation menu'}
+        >
           {isOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
       </div>
@@ -59,6 +66,7 @@ export default function Navbar() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
+            id="mobile-navigation"
             className="absolute top-full left-0 w-full bg-white border-b border-border p-6 md:hidden shadow-xl"
           >
             <div className="flex flex-col gap-6">
